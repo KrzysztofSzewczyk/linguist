@@ -58,7 +58,6 @@ class TestRepository < Minitest::Test
 
     attr_commit = 'c20ebee0ebf33f73313d4694680521f80635d477'
     repo = linguist_repo(attr_commit)
-    p repo.cache
 
     assert repo.breakdown_by_file.has_key?("Java")
     assert repo.breakdown_by_file["Java"].include?("lib/linguist.rb")
@@ -67,7 +66,6 @@ class TestRepository < Minitest::Test
     assert !repo.breakdown_by_file["Ruby"].empty?
 
     # Ensures the filename that contains unicode char is UTF-8 encoded and invalid chars scrubbed
-    p repo.cache
     assert repo.breakdown_by_file.has_key?("Perl")
     assert repo.breakdown_by_file["Perl"].include?("test/fixtures/ba�r/file_ã.pl")
     assert_equal "UTF-8", repo.breakdown_by_file["Perl"].first.encoding.to_s
