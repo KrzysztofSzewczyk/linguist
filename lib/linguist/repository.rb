@@ -95,11 +95,7 @@ module Linguist
     def breakdown_by_file
       @file_breakdown ||= begin
         breakdown = Hash.new { |h,k| h[k] = Array.new }
-        p @cache
-        p cache
-
         cache.each do |filename, (language, _)|
-          puts filename.dup.force_encoding("UTF-8").scrub if filename =~ /fixtures/
           breakdown[language] << filename.dup.force_encoding("UTF-8").scrub
         end
         breakdown
