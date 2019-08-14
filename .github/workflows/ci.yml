@@ -18,10 +18,8 @@ jobs:
     - name: Install dependencies
       run: script/ci/install_deps
     - name: Run tests
-      run: |
-        sudo locale-gen en_US.UTF-8
-        bundle exec rake
+      run: bundle exec rake
       env:
-        LC_ALL: en_US.UTF-8
+        LC_ALL: C.UTF-8
     - name: Check Licenses
       run: script/licensed status
