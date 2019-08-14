@@ -19,5 +19,7 @@ jobs:
       run: script/ci/install_deps
     - name: Run tests
       run: bundle exec rake
+      env:
+        lang: en_US.UTF-8
     - name: Check Licenses
       run: script/licensed status
