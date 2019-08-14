@@ -20,6 +20,6 @@ jobs:
     - name: Run tests
       run: bundle exec rake
       env:
-        lang: en_US.UTF-8
+        LANG: en_US.UTF-8
     - name: Check Licenses
       run: script/licensed status
