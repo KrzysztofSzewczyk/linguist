@@ -18,12 +18,7 @@ jobs:
     - name: Install dependencies
       run: script/ci/install_deps
     - name: Run tests
-      run: |
-        git checkout c20ebee0ebf33f73313d4694680521f80635d477
-        ls -lR test/fixtures/
-        ruby -e "Dir['test/fixtures/**/*'].each {|f| puts f.dup.force_encoding('UTF-8').scrub }"
-        git checkout $GITHUB_REF
-        bundle exec rake
+      run: bundle exec rake
       env:
         LC_ALL: C.UTF-8
     - name: Check Licenses

@@ -58,6 +58,7 @@ class TestRepository < Minitest::Test
 
     attr_commit = 'c20ebee0ebf33f73313d4694680521f80635d477'
     repo = linguist_repo(attr_commit)
+    p repo.cache
 
     assert repo.breakdown_by_file.has_key?("Java")
     assert repo.breakdown_by_file["Java"].include?("lib/linguist.rb")
