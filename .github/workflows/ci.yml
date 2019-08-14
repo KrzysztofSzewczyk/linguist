@@ -18,7 +18,12 @@ jobs:
     - name: Install dependencies
       run: script/ci/install_deps
     - name: Run tests
-      run: bundle exec rake
+      run: |
+        git checkout c20ebee0ebf33f73313d4694680521f80635d477
+        ls -lR test/fixtures/
+        bundle exec bin/github-linguist --breakdown
+        git checkout $GITHUB_REF
+        bundle exec rake
       env:
         LC_ALL: C.UTF-8
     - name: Check Licenses
