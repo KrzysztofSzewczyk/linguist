@@ -22,7 +22,6 @@ jobs:
         git checkout c20ebee0ebf33f73313d4694680521f80635d477
         ls -lR test/fixtures/
         ruby -e "Dir['test/fixtures/**/*'].each {|f| puts f.dup.force_encoding('UTF-8').scrub }"
-        bundle exec bin/linguist --breakdown
         git checkout $GITHUB_REF
         bundle exec rake
       env:
