@@ -19,9 +19,8 @@ jobs:
       run: script/ci/install_deps
     - name: Run tests
       run: |
-        locale -a | grep UTF-8
         bundle exec rake
       env:
-        LC_ALL: en_US.UTF-8
+        LC_ALL: C.UTF-8
     - name: Check Licenses
       run: script/licensed status
